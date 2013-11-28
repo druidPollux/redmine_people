@@ -40,15 +40,15 @@
     <div style="margin: 10px 0px; padding: 10px;">
 
       <span class="live_search">
-        <%= text_field_tag(:name, params[:name], :autocomplete => "off", :class => "live_search_field", :placeholder => 'ФИО', style: 'width: 150px;' ) %>
+        <%= text_field_tag(:name, params[:name], :autocomplete => "off", :class => "live_search_field", :placeholder => 'name', style: 'width: 150px;' ) %>
       </span>
 
       <span class="live_search">
-        <%= text_field_tag(:job_title, params[:job_title], :autocomplete => "off", :class => "live_search_field", :placeholder => 'Должность', style: 'width: 150px;') %>
+        <%= text_field_tag(:job_title, params[:job_title], :autocomplete => "off", :class => "live_search_field", :placeholder => l(:field_people_job_title), style: 'width: 150px;') %>
       </span>
        
       <span class="live_search">
-        <%= text_field_tag(:phone, params[:phone], :autocomplete => "off", :class => "live_search_field", :placeholder => 'Телефон', style: 'width: 150px;' ) %>
+        <%= text_field_tag(:phone, params[:phone], :autocomplete => "off", :class => "live_search_field", :placeholder => l(:field_people_phone), style: 'width: 150px;' ) %>
       </span>
      
       <span class="live_search">
@@ -56,11 +56,11 @@
       </span>
 
       <span class="live_search" style="font-weight: normal; margin-left: 15px;">
-        Подразделение:
+        Department:
         <%= select_tag 'department_id', department_tree_options_for_select(Department.all, selected: Department.find_by_id(params[:department_id])), prompt: l(:prompt_please_select), class: 'live_search_field', style: 'width: 200px;', onchange: 'this.form.submit();' %>
       </span>
 
-      <%= link_to "Очистить", people_path, class: "icon icon-reload", style: "margin-left: 15px;" %>
+      <%= link_to "reload", people_path, class: "icon icon-reload", style: "margin-left: 15px;" %>
 
     </div>
 
